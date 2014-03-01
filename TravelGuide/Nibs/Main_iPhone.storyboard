@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Startup View Controller-->
         <scene sceneID="8Nl-r2-S0j">
             <objects>
-                <viewController id="JlN-8x-6ua" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartupViewController" id="JlN-8x-6ua" customClass="SPTGStartupViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wj3-kY-b7E"/>
                         <viewControllerLayoutGuide type="bottom" id="uIf-Dg-gI2"/>
@@ -24,7 +24,6 @@
                                     <constraint firstAttribute="width" constant="320" id="b7q-0T-Kax"/>
                                     <constraint firstAttribute="height" constant="568" id="eG4-6k-OFi"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -32,7 +31,7 @@
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Figuring out where you are ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3Z-HE-hKV">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Figuring out where you are ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3Z-HE-hKV">
                                 <rect key="frame" x="48" y="245" width="224" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -50,6 +49,11 @@
                             <constraint firstAttribute="centerX" secondItem="atg-qu-scF" secondAttribute="centerX" id="YFH-TK-P3Y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="xwl-6P-aKV" id="1JE-W5-FJQ"/>
+                        <outlet property="articleView" destination="atg-qu-scF" id="IOn-j9-iZ0"/>
+                        <outlet property="loadingLabel" destination="C3Z-HE-hKV" id="J9x-jc-DfC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIJ-uv-y75" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

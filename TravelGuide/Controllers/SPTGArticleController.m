@@ -9,8 +9,8 @@
 @import CoreLocation;
 
 #import "SPTGArticleController.h"
-
-@import CoreLocation;
+#import "SPTGRequest.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface SPTGArticleController () <CLLocationManagerDelegate>
 
@@ -27,16 +27,41 @@
     if (self) {
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
+        
     }
     
     return self;
 
 }
 
+-(void)fetchArticleForCurrentLocation{
+    [self.locationManager startUpdatingLocation];
+}
+
 -(void)fetchArticleForLocation:(CLLocation*)location{
+    
+    [self.locationManager stopUpdatingLocation];
     
     //first get the page id for the location
     //http://en.wikivoyage.org/w/api.php?action=query&list=geosearch&format=json&gscoord=45.52|-122.68&gsradius=1000&gslimit=10
+    SPTGGeoRequest *searchRequest = [[SPTGGeoRequest alloc] init];
+    searchRequest.coordinates = location.coordinate;
+    
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:searchRequest.request];
+    op.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+     typeof(self)weakSelf = self;
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Completed operation %@", operation);
+        NSLog(@"Response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        
+        [strongSelf.delegate articleController:strongSelf failedToFetchArticleWithError:error];
+    }];
+    
+    [op start];
+    
     
     //when that completes, extract the page id
     //{"query":{"geosearch":[{"pageid":28186,"ns":0,"title":"Portland (Oregon)","lat":45.5119,"lon":-122.676,"dist":953.1,"primary":""}]}}

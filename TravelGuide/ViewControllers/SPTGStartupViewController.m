@@ -6,37 +6,76 @@
 //  Copyright (c) 2014 shadyproject. All rights reserved.
 //
 
+//view controllers
 #import "SPTGStartupViewController.h"
 
-@interface SPTGStartupViewController () <UITextViewDelegate>
+//data controllers
+#import "SPTGArticleController.h"
+
+@interface SPTGStartupViewController () <SPTGArticleControllerDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) IBOutlet UILabel *loadingLabel;
 @property (nonatomic, strong) IBOutlet UITextView *articleView;
 
+@property (nonatomic, strong) SPTGArticleController *articleController;
 @end
 
 @implementation SPTGStartupViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    self.articleController = [[SPTGArticleController alloc] init];
+    self.articleController.delegate = self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self showLoadingUi];
+    [self.articleController fetchArticleForCurrentLocation];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UI Controller Methods
+-(void)showLoadingUi{
+    self.loadingLabel.hidden = NO;
+    [self.activityIndicator startAnimating];
+}
+
+-(void)hideLoadingUi{
+    self.loadingLabel.hidden = YES;
+    [self.activityIndicator stopAnimating];
+}
+
+#pragma mark - SPTGArticleCOntrollerDelegate
+-(void)articleController:(SPTGArticleController*)controller
+         didFetchArticle:(NSAttributedString *)article
+             forLocation:(CLLocation *)location{
+    
+    [self hideLoadingUi];
+    
+    NSLog(@"Got article text: %@", article);
+    NSLog(@"For Location: %@", location);
+    
+    self.articleView.attributedText = article;
+}
+
+-(void)articleController:(SPTGArticleController *)controller failedToFetchArticleWithError:(NSError *)error{
+    [self hideLoadingUi];
+    
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error Loading Article"
+                                                   message:error.localizedDescription delegate:nil
+                                         cancelButtonTitle:@"Okay"
+                                         otherButtonTitles:nil];
+    
+    [view show];
 }
 
 @end
