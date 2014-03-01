@@ -8,7 +8,7 @@
 
 #import "SPTGRequest.h"
 
-#define kBaseUrl    @"http://en.wikivoyage.org/w/api.php"
+NSString *const kWMBaseUrl =  @"http://en.wikivoyage.org/w/api.php";
 
 //////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -19,7 +19,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        self.url = kBaseUrl;
+        self.url = kWMBaseUrl;
     }
     return self;
 }

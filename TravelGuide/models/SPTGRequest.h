@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 shadyproject. All rights reserved.
 //
 
+@import CoreLocation;
+
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
 #import <AFNetworking/AFNetworking.h>
 
 @interface SPTGRequest : NSObject
