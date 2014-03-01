@@ -75,21 +75,41 @@
         }
         
         NSLog(@"Will search for %@", searchForThis);
+        [strongSelf fetchArticleForPageId:searchForThis.pageId];
+       
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        NSLog(@"Error occured during operation: %@", operation);
         
-        [strongSelf.delegate articleController:strongSelf failedToFetchArticleWithError:error];
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf forwardErrorToDelegate:error];
     }];
     
     [op start];
+}
+
+-(void)fetchArticleForPageId:(NSString*)pageId{
+    SPTGQueryRequest *queryReq = [[SPTGQueryRequest alloc] init];
+    queryReq.pageId = pageId;
     
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:queryReq.request];
+    op.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    //when that completes, extract the page id
-    //{"query":{"geosearch":[{"pageid":28186,"ns":0,"title":"Portland (Oregon)","lat":45.5119,"lon":-122.676,"dist":953.1,"primary":""}]}}
+    typeof(self)weakSelf = self;
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Got response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error occured during operation: %@", operation);
+        
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf forwardErrorToDelegate:error];
+    }];
     
-    //and run this query to get the html back
-    //http://en.wikivoyage.org//w/api.php?action=parse&format=json&pageid=28186
-    
+    [op start];
+}
+
+-(void)forwardErrorToDelegate:(NSError*)error{
+    NSLog(@"Error occured: %@", error);
+    [self.delegate articleController:self failedToFetchArticleWithError:error];
 }
 
 #pragma mark - CLLocationManagerDelegate

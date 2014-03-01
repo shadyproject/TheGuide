@@ -83,7 +83,10 @@
 
 -(MWGeoSearchResult*)searchResultToLoadFromList:(NSArray *)resultsList{
    //TODO: present this with a UI
-    return [resultsList firstObject];
+    MWGeoSearchResult *result = [resultsList firstObject];
+    self.loadingLabel.text = [NSString stringWithFormat:@"Loading article for %@", result.title];
+    
+    return result;
 }
 
 @end

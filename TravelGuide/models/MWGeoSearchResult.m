@@ -30,7 +30,7 @@ NSString *const kMWGeoSearchTitleKey =  @"title";
 @implementation MWGeoSearchResult
 
 -(instancetype)init{
-    NSAssert(@"Please used the designated initializer %@", NSStringFromSelector(@selector(initWithDictionary:)));
+    NSAssert(false, @"Please used the designated initializer %@", NSStringFromSelector(@selector(initWithDictionary:)));
     return nil;
 }
 
