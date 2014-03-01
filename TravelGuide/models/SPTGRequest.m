@@ -38,7 +38,17 @@ NSString *const kWMBaseUrl =  @"http://en.wikivoyage.org/w/api.php";
 
 @implementation SPTGQueryRequest
 
+-(instancetype)init{
+    if (self = [super init]) {
+        self.parameters = [@{@"format": @"json", @"action": @"parse"} mutableCopy];
+    }
+    return self;
+}
 
+-(void)setPageId:(NSString *)pageId{
+    _pageId = pageId;
+    [self.parameters setObject:self.pageId forKey:@"pageid"];
+}
 
 @end
 

@@ -22,6 +22,7 @@
 
 @interface SPTGQueryRequest : SPTGRequest
 
+@property (nonatomic, strong) NSString *pageId;
 
 @end
 
