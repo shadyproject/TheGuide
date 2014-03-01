@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D597B7A18C1B0E2005C42A8 /* SPTGArticleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D597B7918C1B0E2005C42A8 /* SPTGArticleController.m */; };
 		2DBE32BD18C194B600FC2E0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBE32BC18C194B600FC2E0D /* Foundation.framework */; };
 		2DBE32BF18C194B600FC2E0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBE32BE18C194B600FC2E0D /* CoreGraphics.framework */; };
 		2DBE32C118C194B600FC2E0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBE32C018C194B600FC2E0D /* UIKit.framework */; };
@@ -22,6 +21,8 @@
 		2DBE32E218C194B600FC2E0D /* TravelGuideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE32E118C194B600FC2E0D /* TravelGuideTests.m */; };
 		2DBE32F018C19A3E00FC2E0D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBE32EF18C19A3E00FC2E0D /* Main_iPad.storyboard */; };
 		2DBE32F218C19AC100FC2E0D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBE32F118C19AC100FC2E0D /* Main_iPhone.storyboard */; };
+		5A1C220618C1CF7D0063538C /* SPTGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C220518C1CF7D0063538C /* SPTGRequest.m */; };
+		5A1C220818C1D62A0063538C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1C220718C1D62A0063538C /* CoreLocation.framework */; };
 		AD76273ABF4D4038B18C1F7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78F2BD038F4E2495C438A9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -36,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D597B7818C1B0E2005C42A8 /* SPTGArticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTGArticleController.h; sourceTree = "<group>"; };
-		2D597B7918C1B0E2005C42A8 /* SPTGArticleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTGArticleController.m; sourceTree = "<group>"; };
 		2DBE32B918C194B600FC2E0D /* TravelGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DBE32BC18C194B600FC2E0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DBE32BE18C194B600FC2E0D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +55,9 @@
 		2DBE32E118C194B600FC2E0D /* TravelGuideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelGuideTests.m; sourceTree = "<group>"; };
 		2DBE32EF18C19A3E00FC2E0D /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		2DBE32F118C19AC100FC2E0D /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		5A1C220418C1CF7D0063538C /* SPTGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTGRequest.h; path = models/SPTGRequest.h; sourceTree = "<group>"; };
+		5A1C220518C1CF7D0063538C /* SPTGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPTGRequest.m; path = models/SPTGRequest.m; sourceTree = "<group>"; };
+		5A1C220718C1D62A0063538C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		603A72DB50E64E228E8405ED /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		7F78F2BD038F4E2495C438A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -65,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1C220818C1D62A0063538C /* CoreLocation.framework in Frameworks */,
 				2DBE32BF18C194B600FC2E0D /* CoreGraphics.framework in Frameworks */,
 				2DBE32C118C194B600FC2E0D /* UIKit.framework in Frameworks */,
 				2DBE32BD18C194B600FC2E0D /* Foundation.framework in Frameworks */,
@@ -117,6 +120,7 @@
 		2DBE32BB18C194B600FC2E0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A1C220718C1D62A0063538C /* CoreLocation.framework */,
 				2DBE32BC18C194B600FC2E0D /* Foundation.framework */,
 				2DBE32BE18C194B600FC2E0D /* CoreGraphics.framework */,
 				2DBE32C018C194B600FC2E0D /* UIKit.framework */,
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				2D597B7718C1B073005C42A8 /* Controllers */,
+				5A1C220318C1CCE30063538C /* Models */,
 				2DBE32EE18C199F700FC2E0D /* Views */,
 				2DBE32ED18C199E300FC2E0D /* View Controllers */,
 				2DBE32EB18C194C400FC2E0D /* Nibs */,
@@ -192,6 +197,15 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5A1C220318C1CCE30063538C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5A1C220418C1CF7D0063538C /* SPTGRequest.h */,
+				5A1C220518C1CF7D0063538C /* SPTGRequest.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1C220618C1CF7D0063538C /* SPTGRequest.m in Sources */,
 				2DBE32CD18C194B600FC2E0D /* SPTGAppDelegate.m in Sources */,
 				2DBE32C918C194B600FC2E0D /* main.m in Sources */,
 				2D597B7A18C1B0E2005C42A8 /* SPTGArticleController.m in Sources */,
