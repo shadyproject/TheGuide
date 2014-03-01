@@ -5,8 +5,9 @@
 //  Created by Christopher Martin on 2/28/14.
 //  Copyright (c) 2014 shadyproject. All rights reserved.
 //
-
+#import <AFNetworking/AFNetworking.h>
 #import "SPTGAppDelegate.h"
+#import "SPTGRequest.h"
 
 @implementation SPTGAppDelegate
 
@@ -34,7 +35,17 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // just for testing
+    CLLocationCoordinate2D coordinates = CLLocationCoordinate2DMake(45.5434085, -122.654422);
+    SPTGGeoRequest *geoRequest = [[SPTGGeoRequest alloc] init];
+    geoRequest.coordinates = coordinates;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager HTTPRequestOperationWithRequest:[geoRequest request] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
