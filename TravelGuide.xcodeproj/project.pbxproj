@@ -21,6 +21,8 @@
 		2DBE32E218C194B600FC2E0D /* TravelGuideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE32E118C194B600FC2E0D /* TravelGuideTests.m */; };
 		2DBE32F018C19A3E00FC2E0D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBE32EF18C19A3E00FC2E0D /* Main_iPad.storyboard */; };
 		2DBE32F218C19AC100FC2E0D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBE32F118C19AC100FC2E0D /* Main_iPhone.storyboard */; };
+		2DE1B5D018C2597000F6C111 /* SPTGArticleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5CF18C2597000F6C111 /* SPTGArticleController.m */; };
+		2DE1B5D318C2607D00F6C111 /* SPTGStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5D218C2607D00F6C111 /* SPTGStartupViewController.m */; };
 		5A1C220618C1CF7D0063538C /* SPTGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C220518C1CF7D0063538C /* SPTGRequest.m */; };
 		5A1C220818C1D62A0063538C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1C220718C1D62A0063538C /* CoreLocation.framework */; };
 		AD76273ABF4D4038B18C1F7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78F2BD038F4E2495C438A9 /* libPods.a */; };
@@ -55,6 +57,10 @@
 		2DBE32E118C194B600FC2E0D /* TravelGuideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelGuideTests.m; sourceTree = "<group>"; };
 		2DBE32EF18C19A3E00FC2E0D /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		2DBE32F118C19AC100FC2E0D /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		2DE1B5CE18C2597000F6C111 /* SPTGArticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTGArticleController.h; sourceTree = "<group>"; };
+		2DE1B5CF18C2597000F6C111 /* SPTGArticleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTGArticleController.m; sourceTree = "<group>"; };
+		2DE1B5D118C2607D00F6C111 /* SPTGStartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTGStartupViewController.h; sourceTree = "<group>"; };
+		2DE1B5D218C2607D00F6C111 /* SPTGStartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTGStartupViewController.m; sourceTree = "<group>"; };
 		5A1C220418C1CF7D0063538C /* SPTGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTGRequest.h; path = models/SPTGRequest.h; sourceTree = "<group>"; };
 		5A1C220518C1CF7D0063538C /* SPTGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPTGRequest.m; path = models/SPTGRequest.m; sourceTree = "<group>"; };
 		5A1C220718C1D62A0063538C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -91,8 +97,8 @@
 		2D597B7718C1B073005C42A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2D597B7818C1B0E2005C42A8 /* SPTGArticleController.h */,
-				2D597B7918C1B0E2005C42A8 /* SPTGArticleController.m */,
+				2DE1B5CE18C2597000F6C111 /* SPTGArticleController.h */,
+				2DE1B5CF18C2597000F6C111 /* SPTGArticleController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +193,8 @@
 		2DBE32ED18C199E300FC2E0D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DE1B5D118C2607D00F6C111 /* SPTGStartupViewController.h */,
+				2DE1B5D218C2607D00F6C111 /* SPTGStartupViewController.m */,
 			);
 			name = "View Controllers";
 			path = ViewControllers;
@@ -341,10 +349,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DE1B5D018C2597000F6C111 /* SPTGArticleController.m in Sources */,
 				5A1C220618C1CF7D0063538C /* SPTGRequest.m in Sources */,
+				2DE1B5D318C2607D00F6C111 /* SPTGStartupViewController.m in Sources */,
 				2DBE32CD18C194B600FC2E0D /* SPTGAppDelegate.m in Sources */,
 				2DBE32C918C194B600FC2E0D /* main.m in Sources */,
-				2D597B7A18C1B0E2005C42A8 /* SPTGArticleController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
