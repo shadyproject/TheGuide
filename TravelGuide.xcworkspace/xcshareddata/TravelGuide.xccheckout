@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>923AF182-A8D4-4736-88A8-AB5A76184C3D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TravelGuide</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E355318A-8CFF-4F90-821D-0034770CF7ED</key>
+		<string>https://github.com/shadyproject/TheGuide.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TravelGuide.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E355318A-8CFF-4F90-821D-0034770CF7ED</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/shadyproject/TheGuide.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E355318A-8CFF-4F90-821D-0034770CF7ED</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E355318A-8CFF-4F90-821D-0034770CF7ED</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TravelGuide</string>
+		</dict>
+	</array>
+</dict>
+</plist>
