@@ -12,6 +12,9 @@
 //data controllers
 #import "SPTGArticleController.h"
 
+//models
+#import "MWGeoSearchResult.h"
+
 @interface SPTGStartupViewController () <SPTGArticleControllerDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -76,6 +79,11 @@
                                          otherButtonTitles:nil];
     
     [view show];
+}
+
+-(MWGeoSearchResult*)searchResultToLoadFromList:(NSArray *)resultsList{
+   //TODO: present this with a UI
+    return [resultsList firstObject];
 }
 
 @end

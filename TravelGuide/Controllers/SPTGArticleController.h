@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class CLLocation;
 @class SPTGArticleController;
+@class MWGeoSearchResult;
 
 @protocol SPTGArticleControllerDelegate
 
@@ -17,13 +18,13 @@
 
 @optional
 //if multiple search results, allow the delegate to decide which to load
--(NSString*)nameOfArticleToFetchFromList:(NSArray*)listOfNames;
+-(MWGeoSearchResult*)searchResultToLoadFromList:(NSArray*)resultsList;
 
 @end
 
 @interface SPTGArticleController : NSObject
 
-@property (nonatomic, weak) id<SPTGArticleControllerDelegate> delegate;
+@property (nonatomic, weak) NSObject<SPTGArticleControllerDelegate> *delegate;
 
 -(void)fetchArticleForCurrentLocation;
 

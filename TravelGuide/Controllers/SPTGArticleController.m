@@ -7,10 +7,16 @@
 //
 
 @import CoreLocation;
-
-#import "SPTGArticleController.h"
-#import "SPTGRequest.h"
 #import <AFNetworking/AFNetworking.h>
+
+//contollers
+#import "SPTGArticleController.h"
+
+//models
+#import "SPTGRequest.h"
+#import "MWGeoSearchResult.h"
+
+
 
 @interface SPTGArticleController () <CLLocationManagerDelegate>
 
@@ -42,8 +48,6 @@
     
     [self.locationManager stopUpdatingLocation];
     
-    //first get the page id for the location
-    //http://en.wikivoyage.org/w/api.php?action=query&list=geosearch&format=json&gscoord=45.52|-122.68&gsradius=1000&gslimit=10
     SPTGGeoRequest *searchRequest = [[SPTGGeoRequest alloc] init];
     searchRequest.coordinates = location.coordinate;
     
@@ -52,8 +56,25 @@
     
      typeof(self)weakSelf = self;
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Completed operation %@", operation);
-        NSLog(@"Response: %@", responseObject);
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        
+        //TODO make these constants and maybe use a custom serializer above?
+        NSArray *results = responseObject[@"query"][@"geosearch"];
+        MWGeoSearchResult *searchForThis = nil;
+        
+        if (results.count > 1 && [strongSelf.delegate respondsToSelector:@selector(searchResultToLoadFromList:)]) {
+            __block NSMutableArray *options = [NSMutableArray array];
+            [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                MWGeoSearchResult *r = [[MWGeoSearchResult alloc] initWithDictionary:obj];
+                [options addObject:r];
+            }];
+            
+            searchForThis = [strongSelf.delegate searchResultToLoadFromList:options];
+        } else {
+            searchForThis = [[MWGeoSearchResult alloc] initWithDictionary:[results firstObject]];
+        }
+        
+        NSLog(@"Will search for %@", searchForThis);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         

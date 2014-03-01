@@ -23,6 +23,7 @@
 		2DBE32F218C19AC100FC2E0D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBE32F118C19AC100FC2E0D /* Main_iPhone.storyboard */; };
 		2DE1B5D018C2597000F6C111 /* SPTGArticleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5CF18C2597000F6C111 /* SPTGArticleController.m */; };
 		2DE1B5D318C2607D00F6C111 /* SPTGStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5D218C2607D00F6C111 /* SPTGStartupViewController.m */; };
+		2DE1B5D618C26ACD00F6C111 /* MWGeoSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5D518C26ACD00F6C111 /* MWGeoSearchResult.m */; };
 		5A1C220618C1CF7D0063538C /* SPTGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C220518C1CF7D0063538C /* SPTGRequest.m */; };
 		5A1C220818C1D62A0063538C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1C220718C1D62A0063538C /* CoreLocation.framework */; };
 		AD76273ABF4D4038B18C1F7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78F2BD038F4E2495C438A9 /* libPods.a */; };
@@ -61,6 +62,8 @@
 		2DE1B5CF18C2597000F6C111 /* SPTGArticleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTGArticleController.m; sourceTree = "<group>"; };
 		2DE1B5D118C2607D00F6C111 /* SPTGStartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTGStartupViewController.h; sourceTree = "<group>"; };
 		2DE1B5D218C2607D00F6C111 /* SPTGStartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTGStartupViewController.m; sourceTree = "<group>"; };
+		2DE1B5D418C26ACD00F6C111 /* MWGeoSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWGeoSearchResult.h; path = models/MWGeoSearchResult.h; sourceTree = "<group>"; };
+		2DE1B5D518C26ACD00F6C111 /* MWGeoSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWGeoSearchResult.m; path = models/MWGeoSearchResult.m; sourceTree = "<group>"; };
 		5A1C220418C1CF7D0063538C /* SPTGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTGRequest.h; path = models/SPTGRequest.h; sourceTree = "<group>"; };
 		5A1C220518C1CF7D0063538C /* SPTGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPTGRequest.m; path = models/SPTGRequest.m; sourceTree = "<group>"; };
 		5A1C220718C1D62A0063538C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -212,6 +215,8 @@
 			children = (
 				5A1C220418C1CF7D0063538C /* SPTGRequest.h */,
 				5A1C220518C1CF7D0063538C /* SPTGRequest.m */,
+				2DE1B5D418C26ACD00F6C111 /* MWGeoSearchResult.h */,
+				2DE1B5D518C26ACD00F6C111 /* MWGeoSearchResult.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DE1B5D618C26ACD00F6C111 /* MWGeoSearchResult.m in Sources */,
 				2DE1B5D018C2597000F6C111 /* SPTGArticleController.m in Sources */,
 				5A1C220618C1CF7D0063538C /* SPTGRequest.m in Sources */,
 				2DE1B5D318C2607D00F6C111 /* SPTGStartupViewController.m in Sources */,
