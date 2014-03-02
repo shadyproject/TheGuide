@@ -4,11 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPTGImageCell">
-            <connections>
-                <outlet property="imageView" destination="6hC-wl-3cl" id="sfR-RE-9g3"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPTGImageCell"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2Tl-lV-hXS" customClass="SPTGImageCell">
             <rect key="frame" x="0.0" y="0.0" width="195" height="214"/>
@@ -33,6 +29,9 @@
                 <constraint firstItem="6hC-wl-3cl" firstAttribute="leading" secondItem="2Tl-lV-hXS" secondAttribute="leading" id="viv-RE-eM7"/>
             </constraints>
             <size key="customSize" width="195" height="214"/>
+            <connections>
+                <outlet property="imageView" destination="6hC-wl-3cl" id="A8X-GT-ha7"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

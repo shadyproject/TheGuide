@@ -19,6 +19,9 @@
 #import "SPTGLeadCell.h"
 #import "SPTGSectionCell.h"
 
+const NSInteger kSPTGArticleLeadSection = 0;
+const NSInteger kSPTGArticleSectionSection = 1;
+
 @interface SPTGArticleViewController () <SPTGArticleControllerDelegate,
                                          UICollectionViewDataSource,
                                          UICollectionViewDelegate,
@@ -34,15 +37,6 @@
 @end
 
 @implementation SPTGArticleViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -121,6 +115,7 @@
 
 -(MWGeoSearchResult*)searchResultToLoadFromList:(NSArray *)resultsList{
    //TODO: present this with a UI
+    NSLog(@"Available search results: %@", resultsList);
     MWGeoSearchResult *result = [resultsList firstObject];
     self.loadingLabel.text = [NSString stringWithFormat:@"Loading article for %@", result.title];
     
@@ -129,37 +124,98 @@
 
 #pragma mark - UICollectionViewDataSource
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-        return self.article.sections.count;
+    NSInteger count = 0;
+    if (!self.article) {
+        return count;
+    }
+    
+    switch (section) {
+        case kSPTGArticleLeadSection:
+            count = 1;
+            break;
+            
+        case kSPTGArticleSectionSection:
+            count = self.article.sections.count - 1;
+            break;
+            
+        default:
+            count = 0;
+            break;
+    }
+    
+    return count;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    if (!self.article) {
+        return 0;
+    }
+    
+    return 2;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    SPTGSectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[SPTGSectionCell cellReuseId]
-                                                                      forIndexPath:indexPath];
-    NSString *sectionName = self.article.sections[indexPath.item];
-    cell.sectionText = [[NSAttributedString alloc] initWithString:sectionName];
+    UICollectionViewCell *cell = nil;
     
-    cell.layer.borderWidth = 1.0;
-    cell.layer.borderColor = [[UIColor orangeColor] CGColor];
+    switch (indexPath.section) {
+        case kSPTGArticleLeadSection:
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:[SPTGLeadCell cellReuseId] forIndexPath:indexPath];
+            [self configureLeadCell:cell forItemAtIndexPath:indexPath];
+            break;
+        
+        case kSPTGArticleSectionSection:
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:[SPTGSectionCell cellReuseId] forIndexPath:indexPath];
+            [self configureSectionCell:cell forItemAtIndexPath:indexPath];
+            break;
+        default:
+            break;
+    }
     
     return cell;
+}
+
+-(void)configureSectionCell:(UICollectionViewCell*)cell forItemAtIndexPath:(NSIndexPath*)indexPath{
+    SPTGSectionCell *sectionCell = (SPTGSectionCell*)cell;
+    
+    NSString *sectionName = self.article.sections[indexPath.item];
+    sectionCell.sectionText = [[NSAttributedString alloc] initWithString:sectionName];
+    
+}
+
+-(void)configureLeadCell:(UICollectionViewCell*)cell forItemAtIndexPath:(NSIndexPath*)indexPath{
+    SPTGLeadCell *leadCell = (SPTGLeadCell*)cell;
+    
+    leadCell.title = self.article.displayTitle;
+    leadCell.bodyText = [[NSAttributedString alloc] initWithString:@"There should be a lot more text here"];
+    //leadCell.backgroundImage = [UIImage imageNamed:@"continents"];
 }
 
 #pragma mark - UICollectionViewDelegate
 -(CGSize)collectionView:(UICollectionView *)collectionView
                  layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 10, 50);
+    CGSize size = CGSizeZero;
+    
+    //TODO: pull the heights out into constants
+    switch (indexPath.section) {
+        case kSPTGArticleLeadSection:
+            size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 10, 150);
+            break;
+            
+        case kSPTGArticleSectionSection:
+            size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 10, 50);
+            break;
+            
+        default:
+            break;
+    }
     
     return size;
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView
                        layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(2.5, 2.5, 2.5, 2.5);
+    return UIEdgeInsetsMake(2.5, 5.0, 2.5, 5.0);
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView

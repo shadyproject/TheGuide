@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DBE32BD18C194B600FC2E0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBE32BC18C194B600FC2E0D /* Foundation.framework */; };
-		2DBE32BF18C194B600FC2E0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBE32BE18C194B600FC2E0D /* CoreGraphics.framework */; };
-		2DBE32C118C194B600FC2E0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBE32C018C194B600FC2E0D /* UIKit.framework */; };
+		2D14EDF918C3142800516CE1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D14EDF818C3142800516CE1 /* MapKit.framework */; };
 		2DBE32C718C194B600FC2E0D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DBE32C518C194B600FC2E0D /* InfoPlist.strings */; };
 		2DBE32C918C194B600FC2E0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE32C818C194B600FC2E0D /* main.m */; };
 		2DBE32CD18C194B600FC2E0D /* SPTGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE32CC18C194B600FC2E0D /* SPTGAppDelegate.m */; };
@@ -34,7 +32,6 @@
 		2DE1B5F118C2D91C00F6C111 /* SPTGImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5F018C2D91C00F6C111 /* SPTGImageBrowserViewController.m */; };
 		2DE1B5F318C2ECF300F6C111 /* SPTGImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1B5F218C2ECF300F6C111 /* SPTGImageCell.xib */; };
 		5A1C220618C1CF7D0063538C /* SPTGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C220518C1CF7D0063538C /* SPTGRequest.m */; };
-		5A1C220818C1D62A0063538C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1C220718C1D62A0063538C /* CoreLocation.framework */; };
 		AD76273ABF4D4038B18C1F7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78F2BD038F4E2495C438A9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D14EDF818C3142800516CE1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2DBE32B918C194B600FC2E0D /* TravelGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DBE32BC18C194B600FC2E0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DBE32BE18C194B600FC2E0D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,10 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A1C220818C1D62A0063538C /* CoreLocation.framework in Frameworks */,
-				2DBE32BF18C194B600FC2E0D /* CoreGraphics.framework in Frameworks */,
-				2DBE32C118C194B600FC2E0D /* UIKit.framework in Frameworks */,
-				2DBE32BD18C194B600FC2E0D /* Foundation.framework in Frameworks */,
+				2D14EDF918C3142800516CE1 /* MapKit.framework in Frameworks */,
 				AD76273ABF4D4038B18C1F7D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +148,7 @@
 		2DBE32BB18C194B600FC2E0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D14EDF818C3142800516CE1 /* MapKit.framework */,
 				5A1C220718C1D62A0063538C /* CoreLocation.framework */,
 				2DBE32BC18C194B600FC2E0D /* Foundation.framework */,
 				2DBE32BE18C194B600FC2E0D /* CoreGraphics.framework */,

@@ -4,13 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPTGLeadCell">
-            <connections>
-                <outlet property="bgImage" destination="Le7-Y8-nuW" id="qb4-iH-FZV"/>
-                <outlet property="textView" destination="H9s-qv-0Kd" id="bKS-29-htM"/>
-                <outlet property="titleLabel" destination="5WC-n0-2TZ" id="fmH-dT-WQR"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPTGLeadCell"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qKr-QL-zfk" customClass="SPTGLeadCell">
             <rect key="frame" x="0.0" y="0.0" width="242" height="326"/>
@@ -58,6 +52,11 @@
                 <constraint firstItem="Le7-Y8-nuW" firstAttribute="top" secondItem="qKr-QL-zfk" secondAttribute="top" id="wfC-Bc-t66"/>
             </constraints>
             <size key="customSize" width="242" height="326"/>
+            <connections>
+                <outlet property="bgImage" destination="Le7-Y8-nuW" id="YUm-NH-L12"/>
+                <outlet property="textView" destination="H9s-qv-0Kd" id="xiZ-yJ-8rf"/>
+                <outlet property="titleLabel" destination="5WC-n0-2TZ" id="ezj-aa-f4P"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>
