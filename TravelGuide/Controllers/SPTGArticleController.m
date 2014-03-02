@@ -26,17 +26,14 @@
 @implementation SPTGArticleController
 
 -(instancetype)init{
-    
-    self = [super init];
-    
-    if (self) {
+    if (self = [super init]) {
         self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.distanceFilter = 1000; //1km
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
         self.locationManager.delegate = self;
-        
     }
     
     return self;
-
 }
 
 -(void)fetchArticleForCurrentLocation{

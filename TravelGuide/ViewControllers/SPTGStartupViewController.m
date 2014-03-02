@@ -62,11 +62,20 @@
 -(void)articleController:(SPTGArticleController*)controller
          didFetchArticle:(MWParseResult *)article{
 
-    [self hideLoadingUi];
     
     NSLog(@"Displaying article");
     
-    self.articleView.text = article.text;
+    NSDictionary *options = @{
+                              NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                              NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]
+                              };
+    NSAttributedString *convertedText = [[NSAttributedString alloc] initWithData:[article.text dataUsingEncoding:NSUTF8StringEncoding]
+                                                                         options:options
+                                                              documentAttributes:nil error:nil];
+    
+    self.articleView.attributedText = convertedText;
+    
+    [self hideLoadingUi];
 }
 
 -(void)articleController:(SPTGArticleController *)controller failedToFetchArticleWithError:(NSError *)error{
