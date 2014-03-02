@@ -120,6 +120,7 @@
     //ignore location if it was more than 3 minutes ago since CLLocatioNManager
     //will return a cached location first
     if (t < -180) {
+        NSLog(@"Ignoring first location");
         return;
     }
     

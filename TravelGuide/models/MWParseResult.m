@@ -7,6 +7,7 @@
 //
 
 #import "MWParseResult.h"
+#import "TFHpple.h"
 
 NSString *const kMWParseResultTitleKey =  @"title";
 NSString *const kMWParseResultRevIdKey =  @"revid";
@@ -21,7 +22,6 @@ NSString *const kMWParseResultExternalLinkUrlKey = @"externalLinkUrl";
 NSString *const kMWParseResultExternalLinkPhoneKey = @"externalLinkPhone";
 
 
-
 @interface MWParseResult ()
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *displayTitle;
@@ -33,6 +33,8 @@ NSString *const kMWParseResultExternalLinkPhoneKey = @"externalLinkPhone";
 @property (nonatomic, strong) NSArray *links;
 @property (nonatomic, strong) NSArray *sections;
 @property (nonatomic, strong) NSArray *externalLinks;
+
+@property (nonatomic, strong) TFHpple *document;
 
 @end
 
@@ -50,6 +52,8 @@ NSString *const kMWParseResultExternalLinkPhoneKey = @"externalLinkPhone";
         self.text = dictionary[kMWParseResultTextKey][@"*"];
         
         self.revId = [NSNumber numberWithInt:[dictionary[kMWParseResultRevIdKey] intValue]];
+        
+        self.document = [[TFHpple alloc] initWithHTMLData:[self.text dataUsingEncoding:NSUTF8StringEncoding]];
         
         __block  NSMutableArray *images = [NSMutableArray array];
         [dictionary[kMWParseResultImagesKey] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -118,5 +122,17 @@ NSString *const kMWParseResultExternalLinkPhoneKey = @"externalLinkPhone";
     }
     
     return self;
+}
+
+-(NSString*)leadText{
+    NSArray *elements = [self.document searchWithXPathQuery:@"/html/body/p[position()>=1 and position()<3]"];
+    
+    NSMutableString *allTheParagraphs = [[NSMutableString alloc] init];
+    [elements enumerateObjectsUsingBlock:^(TFHppleElement *element, NSUInteger idx, BOOL *stop) {
+        NSString *raw = [element raw];
+        [allTheParagraphs appendString:raw];
+    }];
+    
+     return allTheParagraphs;
 }
 @end

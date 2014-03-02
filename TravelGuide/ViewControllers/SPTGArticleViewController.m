@@ -34,6 +34,8 @@ const NSInteger kSPTGArticleSectionSection = 1;
 @property (nonatomic, strong) SPTGArticleController *articleController;
 
 @property (nonatomic, strong) MWParseResult *article;
+
+@property (nonatomic, readonly) NSDictionary *htmAttributedStringOptions;
 @end
 
 @implementation SPTGArticleViewController
@@ -43,6 +45,11 @@ const NSInteger kSPTGArticleSectionSection = 1;
     [super viewDidLoad];
     
     [self configureCollectionView];
+    
+    _htmAttributedStringOptions = @{
+                                    NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                                    NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]
+                                    };
     
     self.articleController = [[SPTGArticleController alloc] init];
     self.articleController.delegate = self;
@@ -90,10 +97,6 @@ const NSInteger kSPTGArticleSectionSection = 1;
     self.article = article;
     
     /*
-    NSDictionary *options = @{
-                              NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                              NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]
-                              };
     NSAttributedString *convertedText = [[NSAttributedString alloc] initWithData:[article.text dataUsingEncoding:NSUTF8StringEncoding]
                                                                          options:options
                                                               documentAttributes:nil error:nil];
@@ -187,29 +190,39 @@ const NSInteger kSPTGArticleSectionSection = 1;
     SPTGLeadCell *leadCell = (SPTGLeadCell*)cell;
     
     leadCell.title = self.article.displayTitle;
-    leadCell.bodyText = [[NSAttributedString alloc] initWithString:@"There should be a lot more text here"];
-    //leadCell.backgroundImage = [UIImage imageNamed:@"continents"];
+    NSAttributedString *convertedText = [[NSAttributedString alloc] initWithData:[self.article.leadText dataUsingEncoding:NSUTF8StringEncoding]
+                                                                         options:self.htmAttributedStringOptions
+                                                              documentAttributes:nil error:nil];
+    
+    leadCell.bodyText = convertedText;
+    leadCell.backgroundImage = [UIImage imageNamed:@"continents"];
 }
 
 #pragma mark - UICollectionViewDelegate
 -(CGSize)collectionView:(UICollectionView *)collectionView
                  layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGSize size = CGSizeZero;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width - 10;
+    CGFloat height = 0.0;
     
-    //TODO: pull the heights out into constants
     switch (indexPath.section) {
-        case kSPTGArticleLeadSection:
-            size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 10, 150);
+        case kSPTGArticleLeadSection: {
+            NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];
+            CGSize measureSize = CGSizeMake(width, CGFLOAT_MAX);
+            NSDictionary *attrs = @{NSFontAttributeName: [UIFont systemFontOfSize:[UIFont systemFontSize]]};
+            CGRect rect = [[self.article leadText] boundingRectWithSize:measureSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:context];
+            height = rect.size.height;
+        }
             break;
             
         case kSPTGArticleSectionSection:
-            size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 10, 50);
+            height = 50;
             break;
             
         default:
             break;
     }
     
+    CGSize size = CGSizeMake(width, height);
     return size;
 }
 

@@ -25,4 +25,6 @@ extern NSString *const kMWParseResultExternalLinkPhoneKey;
 @property (nonatomic, readonly) NSArray *sections;
 
 -(instancetype)initWithDictionary:(NSDictionary*)dictionary;
+
+-(NSString*)leadText;
 @end
