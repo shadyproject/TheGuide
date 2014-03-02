@@ -14,7 +14,7 @@
 
 @protocol SPTGArticleControllerDelegate
 
--(void)articleController:(SPTGArticleController*)controller didFetchArticle:(MWParseResult*)article forLocation:(CLLocation*)location;
+-(void)articleController:(SPTGArticleController*)controller didFetchArticle:(MWParseResult*)article;
 -(void)articleController:(SPTGArticleController *)controller failedToFetchArticleWithError:(NSError*)error;
 
 @optional

@@ -95,8 +95,10 @@
     
     typeof(self)weakSelf = self;
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Got response: %@", responseObject);
         MWParseResult *article = [[MWParseResult alloc] initWithDictionary:responseObject[@"parse"]];
+        
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf.delegate articleController:strongSelf didFetchArticle:article];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error occured during operation: %@", operation);
         

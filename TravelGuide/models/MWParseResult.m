@@ -47,7 +47,7 @@ NSString *const kMWParseResultExternalLinkPhoneKey = @"externalLinkPhone";
     if (self = [super init]) {
         self.title = dictionary[kMWParseResultTitleKey];
         self.displayTitle = dictionary[kMWParseResultDisplayTitleKey];
-        self.text = dictionary[kMWParseResultTextKey];
+        self.text = dictionary[kMWParseResultTextKey][@"*"];
         
         self.revId = [NSNumber numberWithInt:[dictionary[kMWParseResultRevIdKey] intValue]];
         
@@ -73,35 +73,46 @@ NSString *const kMWParseResultExternalLinkPhoneKey = @"externalLinkPhone";
             [sections addObject:section];
         }];
         
-        
+        /*
         __block NSMutableArray *externalLinks = [NSMutableArray array];
         //if index+1 is a tel:// don't create standalone external link dict for it
         __block BOOL didProcessNextIndex = NO;
         
-        [dictionary[kMWParseResultExternalLinksKey] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        //what we're working with, with the block attribtue to avoid retain cycle weirdness
+        __block NSArray *workingArray = dictionary[kMWParseResultExternalLinksKey];
+        
+        [workingArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             
-            if (didProcessNextIndex) {
+             if (didProcessNextIndex) {
                 didProcessNextIndex = NO;
                 return;
             }
             
-            //half assed attempt at associating phone numbers with links
             NSString *link = obj;
             //try to avoid getting telephone nmbers by themselves
             if ([link hasPrefix:@"tel:"]) {
                 return;
             }
+            
+            //half assed attempt at associating phone numbers and others with links
             NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObject:link forKey:kMWParseResultExternalLinkUrlKey];
-            NSString *phoneNumber = dictionary[kMWParseResultExternalLinksKey][idx + 1];
+            NSInteger next = idx + 1;
+            if (idx > workingArray.count) {
+                return;
+            }
+            NSString *phoneNumber = workingArray[next];
+         //enumerate until we find the next http link then stop iterating and pull each item associated with the url
+            NSArray *subset = [workingArray subarrayWithRange:NSMakeRange(idx, workingArray.count - idx)];
             if ([phoneNumber hasPrefix:@"tel:"]) {
                 didProcessNextIndex = YES;
                 [dict setObject:phoneNumber forKey:kMWParseResultExternalLinkPhoneKey];
             }
             
-            [externalLinks addObject:dict];
+            [externalLinks addObject:obj];
         }];
+         */
         
-        self.externalLinks = externalLinks;
+        self.externalLinks = [NSArray arrayWithArray:dictionary[kMWParseResultExternalLinksKey]];
     }
     
     return self;

@@ -60,13 +60,11 @@
 
 #pragma mark - SPTGArticleCOntrollerDelegate
 -(void)articleController:(SPTGArticleController*)controller
-         didFetchArticle:(MWParseResult *)article
-             forLocation:(CLLocation *)location{
-    
+         didFetchArticle:(MWParseResult *)article{
+
     [self hideLoadingUi];
     
-    NSLog(@"Got article text: %@", article);
-    NSLog(@"For Location: %@", location);
+    NSLog(@"Displaying article");
     
     self.articleView.text = article.text;
 }
