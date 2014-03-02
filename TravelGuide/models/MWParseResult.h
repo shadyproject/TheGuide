@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const kMWParseResultExternalLinkUrlKey;
+extern NSString *const kMWParseResultExternalLinkPhoneKey;
+
 @interface MWParseResult : NSObject
 
 @property (nonatomic, readonly) NSString *title;
@@ -15,10 +18,9 @@
 @property (nonatomic, readonly) NSString *text;
 @property (nonatomic, readonly) NSArray *links;
 @property (nonatomic, readonly) NSArray *images;
+@property (nonatomic, readonly) NSString *displayTitle;
 
-//these seem to be paired up, but not in a distinct object
 @property (nonatomic, readonly) NSArray *externalLinks;
-@property (nonatomic, readonly) NSArray *phoneNumbers;
 
 @property (nonatomic, readonly) NSArray *sections;
 

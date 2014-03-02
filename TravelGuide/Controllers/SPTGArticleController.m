@@ -15,8 +15,7 @@
 //models
 #import "SPTGRequest.h"
 #import "MWGeoSearchResult.h"
-
-
+#import "MWParseResult.h"
 
 @interface SPTGArticleController () <CLLocationManagerDelegate>
 
@@ -97,6 +96,7 @@
     typeof(self)weakSelf = self;
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Got response: %@", responseObject);
+        MWParseResult *article = [[MWParseResult alloc] initWithDictionary:responseObject[@"parse"]];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error occured during operation: %@", operation);
         

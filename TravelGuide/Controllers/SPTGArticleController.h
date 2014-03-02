@@ -10,10 +10,11 @@
 @class CLLocation;
 @class SPTGArticleController;
 @class MWGeoSearchResult;
+@class MWParseResult;
 
 @protocol SPTGArticleControllerDelegate
 
--(void)articleController:(SPTGArticleController*)controller didFetchArticle:(NSAttributedString*)article forLocation:(CLLocation*)location;
+-(void)articleController:(SPTGArticleController*)controller didFetchArticle:(MWParseResult*)article forLocation:(CLLocation*)location;
 -(void)articleController:(SPTGArticleController *)controller failedToFetchArticleWithError:(NSError*)error;
 
 @optional

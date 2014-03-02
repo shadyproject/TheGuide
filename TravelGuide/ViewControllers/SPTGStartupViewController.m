@@ -14,6 +14,7 @@
 
 //models
 #import "MWGeoSearchResult.h"
+#import "MWParseResult.h"
 
 @interface SPTGStartupViewController () <SPTGArticleControllerDelegate, UITextViewDelegate>
 
@@ -59,7 +60,7 @@
 
 #pragma mark - SPTGArticleCOntrollerDelegate
 -(void)articleController:(SPTGArticleController*)controller
-         didFetchArticle:(NSAttributedString *)article
+         didFetchArticle:(MWParseResult *)article
              forLocation:(CLLocation *)location{
     
     [self hideLoadingUi];
@@ -67,7 +68,7 @@
     NSLog(@"Got article text: %@", article);
     NSLog(@"For Location: %@", location);
     
-    self.articleView.attributedText = article;
+    self.articleView.text = article.text;
 }
 
 -(void)articleController:(SPTGArticleController *)controller failedToFetchArticleWithError:(NSError *)error{
