@@ -95,6 +95,7 @@
     
     self.article = article;
     
+    /*
     NSDictionary *options = @{
                               NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
                               NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]
@@ -102,6 +103,7 @@
     NSAttributedString *convertedText = [[NSAttributedString alloc] initWithData:[article.text dataUsingEncoding:NSUTF8StringEncoding]
                                                                          options:options
                                                               documentAttributes:nil error:nil];
+     */
     [self hideLoadingUi];
     [self.collectionView reloadData];
 }
@@ -127,12 +129,7 @@
 
 #pragma mark - UICollectionViewDataSource
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if (self.article) {
-        return 0;
-    } else {
         return self.article.sections.count;
-    }
-    
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -141,7 +138,38 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    SPTGSectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[SPTGSectionCell cellReuseId]
+                                                                      forIndexPath:indexPath];
+    NSString *sectionName = self.article.sections[indexPath.item];
+    cell.sectionText = [[NSAttributedString alloc] initWithString:sectionName];
+    
+    cell.layer.borderWidth = 1.0;
+    cell.layer.borderColor = [[UIColor orangeColor] CGColor];
+    
+    return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
+-(CGSize)collectionView:(UICollectionView *)collectionView
+                 layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 10, 50);
+    
+    return size;
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView
+                       layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(2.5, 2.5, 2.5, 2.5);
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 2.5;
+    
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 2.5;
+}
 @end

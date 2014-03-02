@@ -22,7 +22,6 @@
 		2DBE32F018C19A3E00FC2E0D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBE32EF18C19A3E00FC2E0D /* Main_iPad.storyboard */; };
 		2DBE32F218C19AC100FC2E0D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBE32F118C19AC100FC2E0D /* Main_iPhone.storyboard */; };
 		2DE1B5D018C2597000F6C111 /* SPTGArticleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5CF18C2597000F6C111 /* SPTGArticleController.m */; };
-		2DE1B5D318C2607D00F6C111 /* SPTGStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5D218C2607D00F6C111 /* SPTGStartupViewController.m */; };
 		2DE1B5D618C26ACD00F6C111 /* MWGeoSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5D518C26ACD00F6C111 /* MWGeoSearchResult.m */; };
 		2DE1B5D918C2837200F6C111 /* MWParseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5D818C2837200F6C111 /* MWParseResult.m */; };
 		2DE1B5DD18C2C9C300F6C111 /* SPTGLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1B5DC18C2C9C300F6C111 /* SPTGLeadCell.xib */; };
@@ -70,8 +69,6 @@
 		2DBE32F118C19AC100FC2E0D /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2DE1B5CE18C2597000F6C111 /* SPTGArticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTGArticleController.h; sourceTree = "<group>"; };
 		2DE1B5CF18C2597000F6C111 /* SPTGArticleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTGArticleController.m; sourceTree = "<group>"; };
-		2DE1B5D118C2607D00F6C111 /* SPTGStartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTGStartupViewController.h; sourceTree = "<group>"; };
-		2DE1B5D218C2607D00F6C111 /* SPTGStartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTGStartupViewController.m; sourceTree = "<group>"; };
 		2DE1B5D418C26ACD00F6C111 /* MWGeoSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWGeoSearchResult.h; path = models/MWGeoSearchResult.h; sourceTree = "<group>"; };
 		2DE1B5D518C26ACD00F6C111 /* MWGeoSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWGeoSearchResult.m; path = models/MWGeoSearchResult.m; sourceTree = "<group>"; };
 		2DE1B5D718C2837200F6C111 /* MWParseResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWParseResult.h; path = models/MWParseResult.h; sourceTree = "<group>"; };
@@ -226,8 +223,6 @@
 		2DBE32ED18C199E300FC2E0D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2DE1B5D118C2607D00F6C111 /* SPTGStartupViewController.h */,
-				2DE1B5D218C2607D00F6C111 /* SPTGStartupViewController.m */,
 				2DE1B5E618C2D1A700F6C111 /* SPTGArticleViewController.h */,
 				2DE1B5E718C2D1A700F6C111 /* SPTGArticleViewController.m */,
 				2DE1B5E918C2D1ED00F6C111 /* SPTGMapViewController.h */,
@@ -404,7 +399,6 @@
 				2DE1B5D618C26ACD00F6C111 /* MWGeoSearchResult.m in Sources */,
 				2DE1B5D018C2597000F6C111 /* SPTGArticleController.m in Sources */,
 				5A1C220618C1CF7D0063538C /* SPTGRequest.m in Sources */,
-				2DE1B5D318C2607D00F6C111 /* SPTGStartupViewController.m in Sources */,
 				2DE1B5E518C2CDFB00F6C111 /* SPTGSectionCell.m in Sources */,
 				2DE1B5F118C2D91C00F6C111 /* SPTGImageBrowserViewController.m in Sources */,
 				2DBE32CD18C194B600FC2E0D /* SPTGAppDelegate.m in Sources */,

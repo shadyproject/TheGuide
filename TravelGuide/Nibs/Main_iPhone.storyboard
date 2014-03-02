@@ -143,7 +143,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cZp-xF-JAC">
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cZp-xF-JAC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -164,6 +164,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="4vm-gx-J2c" id="Tsa-qo-zvJ"/>
+                                    <outlet property="delegate" destination="4vm-gx-J2c" id="nJP-gb-fKf"/>
+                                </connections>
                             </collectionView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dja-yR-dgV">
                                 <rect key="frame" x="156" y="216" width="20" height="20"/>
@@ -181,7 +185,7 @@
                         <constraints>
                             <constraint firstItem="cZp-xF-JAC" firstAttribute="leading" secondItem="QtG-hx-KUk" secondAttribute="leading" id="EMi-q3-qHX"/>
                             <constraint firstAttribute="centerX" secondItem="dja-yR-dgV" secondAttribute="centerX" constant="-6" id="RQT-fv-U7X"/>
-                            <constraint firstItem="WZC-wC-WT8" firstAttribute="top" secondItem="cZp-xF-JAC" secondAttribute="bottom" id="TZR-Ev-Wfg"/>
+                            <constraint firstItem="WZC-wC-WT8" firstAttribute="top" secondItem="cZp-xF-JAC" secondAttribute="bottom" constant="-1" id="TZR-Ev-Wfg"/>
                             <constraint firstAttribute="trailing" secondItem="cZp-xF-JAC" secondAttribute="trailing" id="bB1-T9-Aa0"/>
                             <constraint firstAttribute="centerX" secondItem="YF6-WF-N0t" secondAttribute="centerX" constant="-6" id="dYH-kC-Rr2"/>
                             <constraint firstAttribute="centerY" secondItem="cZp-xF-JAC" secondAttribute="centerY" id="dcI-Cf-HUD"/>

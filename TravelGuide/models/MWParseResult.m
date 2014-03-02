@@ -73,6 +73,8 @@ NSString *const kMWParseResultExternalLinkPhoneKey = @"externalLinkPhone";
             [sections addObject:section];
         }];
         
+        self.sections = sections;
+        
         /*
         __block NSMutableArray *externalLinks = [NSMutableArray array];
         //if index+1 is a tel:// don't create standalone external link dict for it
