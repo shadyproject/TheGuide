@@ -33,6 +33,7 @@
 		2DE1B5EB18C2D1ED00F6C111 /* SPTGMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5EA18C2D1ED00F6C111 /* SPTGMapViewController.m */; };
 		2DE1B5EE18C2D28000F6C111 /* SPTGImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5ED18C2D28000F6C111 /* SPTGImageCell.m */; };
 		2DE1B5F118C2D91C00F6C111 /* SPTGImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1B5F018C2D91C00F6C111 /* SPTGImageBrowserViewController.m */; };
+		2DE1B5F318C2ECF300F6C111 /* SPTGImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1B5F218C2ECF300F6C111 /* SPTGImageCell.xib */; };
 		5A1C220618C1CF7D0063538C /* SPTGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C220518C1CF7D0063538C /* SPTGRequest.m */; };
 		5A1C220818C1D62A0063538C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1C220718C1D62A0063538C /* CoreLocation.framework */; };
 		AD76273ABF4D4038B18C1F7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F78F2BD038F4E2495C438A9 /* libPods.a */; };
@@ -89,6 +90,7 @@
 		2DE1B5ED18C2D28000F6C111 /* SPTGImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTGImageCell.m; sourceTree = "<group>"; };
 		2DE1B5EF18C2D91C00F6C111 /* SPTGImageBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTGImageBrowserViewController.h; sourceTree = "<group>"; };
 		2DE1B5F018C2D91C00F6C111 /* SPTGImageBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTGImageBrowserViewController.m; sourceTree = "<group>"; };
+		2DE1B5F218C2ECF300F6C111 /* SPTGImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPTGImageCell.xib; sourceTree = "<group>"; };
 		5A1C220418C1CF7D0063538C /* SPTGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPTGRequest.h; path = models/SPTGRequest.h; sourceTree = "<group>"; };
 		5A1C220518C1CF7D0063538C /* SPTGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPTGRequest.m; path = models/SPTGRequest.m; sourceTree = "<group>"; };
 		5A1C220718C1D62A0063538C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -216,6 +218,7 @@
 				2DBE32F118C19AC100FC2E0D /* Main_iPhone.storyboard */,
 				2DE1B5DC18C2C9C300F6C111 /* SPTGLeadCell.xib */,
 				2DE1B5E118C2CDC100F6C111 /* SPTGSectionCell.xib */,
+				2DE1B5F218C2ECF300F6C111 /* SPTGImageCell.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				2DBE32F218C19AC100FC2E0D /* Main_iPhone.storyboard in Resources */,
 				2DBE32F018C19A3E00FC2E0D /* Main_iPad.storyboard in Resources */,
 				2DBE32C718C194B600FC2E0D /* InfoPlist.strings in Resources */,
+				2DE1B5F318C2ECF300F6C111 /* SPTGImageCell.xib in Resources */,
 				2DBE32CF18C194B600FC2E0D /* Images.xcassets in Resources */,
 				2DE1B5DD18C2C9C300F6C111 /* SPTGLeadCell.xib in Resources */,
 				2DE1B5E218C2CDC100F6C111 /* SPTGSectionCell.xib in Resources */,
