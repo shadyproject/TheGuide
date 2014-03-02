@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) UIImage *image;
 
++(NSString*)cellReuseId;
+
 @end

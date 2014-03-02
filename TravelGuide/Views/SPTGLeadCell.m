@@ -18,6 +18,10 @@
 
 @implementation SPTGLeadCell
 
++(NSString*)cellReuseId{
+    return @"SPTGLeadCell";
+}
+
 -(void)prepareForReuse{
     [super prepareForReuse];
     

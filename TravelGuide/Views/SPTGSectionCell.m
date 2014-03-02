@@ -16,6 +16,10 @@
 
 @implementation SPTGSectionCell
 
++(NSString*)cellReuseId{
+    return @"SPTGSectionCell";
+}
+
 -(void)prepareForReuse{
     self.sectionText = nil;
 }

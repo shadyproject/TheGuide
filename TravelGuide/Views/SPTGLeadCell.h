@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSAttributedString *bodyText;
 @property (nonatomic, strong) UIImage *backgroundImage;
 
++(NSString*)cellReuseId;
+
 @end

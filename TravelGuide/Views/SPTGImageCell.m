@@ -16,6 +16,10 @@
 
 @implementation SPTGImageCell
 
++(NSString*)cellReuseId{
+    return @"SPTGImageCell";
+}
+
 -(void)prepareForReuse{
     self.image = nil;
 }

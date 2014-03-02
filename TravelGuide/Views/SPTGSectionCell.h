@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSAttributedString *sectionText;
 
++(NSString*)cellReuseId;
+
 @end
